@@ -112,6 +112,8 @@
 		$("ul.nav").children("li").click(function (){
 			$("ul.nav").children("li").removeClass("active");
 			$(this).addClass("active");
+
+			$("button.navbar-toggle").click();
 		});
 
 
@@ -120,6 +122,8 @@
 
 		}
 		if(window.location.href.indexOf("about-us") > -1) {
+			$("ul.nav").children("li").removeClass("active");
+			$("ul.nav").children("li").eq(1).addClass("active");
 			$("#homepage").css('display', 'none');
 			$("#about-us").css('display', 'block');
 			var index = 0;
@@ -127,6 +131,8 @@
 				k(arr[index++]);
 			} ,250);
 		}	if(window.location.href.indexOf("contact") > -1) {
+			$("ul.nav").children("li").removeClass("active");
+			$("ul.nav").children("li").eq(2).addClass("active");
 			$("#homepage").css('display', 'none');
 			$("#contact").css('display', 'block');
 		}
@@ -136,33 +142,29 @@
 
 	$(window).bind('hashchange', function() {
 		if(window.location.href.indexOf("about-us") > -1) {
-			// $("#about-us").css('display', 'block');
-			// $("#about-us").fadeIn(500);
-			$("#about-us").show(1000);
+			$("#about-us").fadeIn(1000);
 
-			var index = 0;
-			interval = setInterval(function() {
-				k(arr[index++]);
-			} ,250);
-		} else {
-			// $("#about-us").css('display', 'none');
-			// $("#about-us").fadeOut(500);
-			$("#about-us").hide(1000);
+			// var index = 0;
+			// interval = setInterval(function() {
+			// 	k(arr[index++]);
+			// } ,250);
+		} else {	
 			clearInterval(interval);
-			$( "div.circly" ).fadeTo(0, 0);
-			$( "div.circly" ).css('visibility', 'hidden');
+			$("#about-us").fadeOut(1000);
+			// $( "div.circly" ).fadeTo(0, 0);
+			// $( "div.circly" ).css('visibility', 'hidden');
 		}
 
 		if(window.location.href.indexOf("homepage") > -1) {
-			$("#homepage").show(1000);
+			$("#homepage").fadeIn(1000);
 		} else {
-			$("#homepage").hide(1000);
+			$("#homepage").fadeOut(1000);
 		}
 
 		if(window.location.href.indexOf("contact") > -1) {
-			$("#contact").show(1000);
+			$("#contact").fadeIn(1000);
 		} else {
-			$("#contact").hide(1000);
+			$("#contact").fadeOut(1000);
 		}
 	});
 
@@ -203,61 +205,42 @@
 				<img src="img/izan.jpg"></img>
 				<p>Izan Rodrigo Moreno Maroto</p>
 			</div>
-			<!-- <a href = "http://fede.pilasvacias.com"> -->
 			<div class="circly">
 				<img src="img/fede.jpg"></img>
 				<p>Fede Gutiérrez</p> 
 			</div>
-			<!-- </a>  -->
-			<a href = "http://alvaro.rm.pilasvacias.com">
-				<div class="circly">
-					<img src="img/alvo.jpg"></img>
-					<p>Alvaro M. Romero Martínez</p> 
-				</div>
-			</a> 
-			<a href = "http://pablo.pilasvacias.com">
-				<div class="circly">
-					<img src="img/pablo.jpg"></img>
-					<p>Pablo Orgaz González-Carpio</p> 
-				</div>
-			</a>
-			<a href = "http://proba.pilasvacias.com">
-				<div class="circly">
-					<img src="img/alvlaz.jpg"></img>
-					<p>Álvaro Lázaro</p> 
-				</div>
-			</a>
-			<a href = "http://proba.pilasvacias.com">
-				<div class="circly">
-					<img src="img/stub.png"></img>
-					<p>David Martín Amor</p> 
-				</div>
-			</a>
-			<a href = "http://misha.pilasvacias.com">
-				<div class="circly">
-					<img src="img/misha.png"></img>
-					<p>Misha Malyga</p> 
-				</div>
-			</a> 
-
-			<a href = "http://adrian.pilasvacias.com">
-				<div class="circly">
-					<img src="img/stub.png"></img>
-					<p>Adrián Bravo Arribas</p> 
-				</div>
-			</a>
-			<!-- <a href = "http://liang.pilasvacias.com"> -->
+			<div class="circly">
+				<img src="img/alvo.jpg"></img>
+				<p>Alvaro M. Romero Martínez</p> 
+			</div>
+			<div class="circly">
+				<img src="img/pablo.jpg"></img>
+				<p>Pablo Orgaz González-Carpio</p> 
+			</div>
+			<div class="circly">
+				<img src="img/alvlaz.jpg"></img>
+				<p>Álvaro Lázaro</p> 
+			</div>
+			<div class="circly">
+				<img src="img/stub.png"></img>
+				<p>David Martín Amor</p> 
+			</div>
+			<div class="circly">
+				<img src="img/misha.png"></img>
+				<p>Misha Malyga</p> 
+			</div>
+			<div class="circly">
+				<img src="img/stub.png"></img>
+				<p>Adrián Bravo Arribas</p> 
+			</div>
 			<div class="circly">
 				<img src="img/liang.jpg"></img> 
 				<p>Liang Shan Ji</p>
 			</div>
-			<!-- </a> -->
-			<a href = "http://varez.pilasvacias.com">
-				<div class="circly">
-					<img src="img/varez.jpg"></img> 
-					<p>Álvaro Várez Garro</p> 
-				</div>
-			</a>
+			<div class="circly">
+				<img src="img/varez.jpg"></img> 
+				<p>Álvaro Várez Garro</p> 
+			</div>
 		</div>
 
 		<div class = "cardy" id ="profile" >
@@ -301,61 +284,61 @@
 		</article>
 	</div>
 	<script>
-var isProfileShown = -1;
+	var isProfileShown = -1;
 
-$("div.circly").click(
-	function() {
-		var index = $( "div.circly" ).index( this );
+	$("div.circly").click(
+		function() {
+			var index = $( "div.circly" ).index( this );
 
-		if (index != isProfileShown) {
-		isProfileShown = index;
-		var myUrl = "profiles/profile"+ index +".html";
+			if (index != isProfileShown) {
+				isProfileShown = index;
+				var myUrl = "profiles/profile"+ index +".html";
 
-		$.ajax({
-			type: 'GET',
-			url: myUrl,
-			success: function (data) {
-				$( "div.circly" ).children("img").css("border", "4px solid #01414e");
-				$( "div.circly").eq(index).children("img").css("border", "4px solid #e44d26");
+				$.ajax({
+					type: 'GET',
+					url: myUrl,
+					success: function (data) {
+						$( "div.circly" ).children("img").css("border", "4px solid #01414e");
+						$( "div.circly").eq(index).children("img").css("border", "4px solid #e44d26");
 
-				$('#profile').stop(true, true);
-				$('#profile').slideUp(300, function() {
-					$('#profile').html(data);
-				}); 
+						$('#profile').stop(true, true);
+						$('#profile').slideUp(300, function() {
+							$('#profile').html(data);
+						}); 
 
-				$('#profile').slideDown(300); },
-				dataType: 'html',
-				error: function(xhr, textStatus, error){
-					console.log(xhr.statusText);
-					console.log(textStatus);
-					console.log(error);
-				}
-			});
-		} else {
-			isProfileShown = -1;
-			$.ajax({
-			type: 'GET',
-			url: "profiles/profile.html",
-			success: function (data) {
-				$( "div.circly" ).children("img").css("border", "4px solid #01414e");
+						$('#profile').slideDown(300); },
+						dataType: 'html',
+						error: function(xhr, textStatus, error){
+							console.log(xhr.statusText);
+							console.log(textStatus);
+							console.log(error);
+						}
+					});
+			} else {
+				isProfileShown = -1;
+				$.ajax({
+					type: 'GET',
+					url: "profiles/profile.html",
+					success: function (data) {
+						$( "div.circly" ).children("img").css("border", "4px solid #01414e");
 
-			$('#profile').stop(true, true);
-				$('#profile').slideUp(300, function() {
-					$('#profile').html(data);
-				}); 
+						$('#profile').stop(true, true);
+						$('#profile').slideUp(300, function() {
+							$('#profile').html(data);
+						}); 
 
-				$('#profile').slideDown(300); },
-				dataType: 'html',
-				error: function(xhr, textStatus, error){
-					console.log(xhr.statusText);
-					console.log(textStatus);
-					console.log(error);
-				}
-			});
-		}
+						$('#profile').slideDown(300); },
+						dataType: 'html',
+						error: function(xhr, textStatus, error){
+							console.log(xhr.statusText);
+							console.log(textStatus);
+							console.log(error);
+						}
+					});
+			}
 
-	});
-	</script>
+		});
+</script>
 
 </body>
 </html>

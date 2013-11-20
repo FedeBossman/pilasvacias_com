@@ -7,14 +7,22 @@
 	text-align: center;
 	width:118px;
 	vertical-align: top;
-	visibility: hidden;
-	opacity: 0;
+	/*visibility: hidden;*/
+	/*opacity: 0;*/
 	background-color: #282828;
 	box-shadow: rgba(0,0,0,0.2) 8px 8px 7px;
 	padding: 6px 3px 3px 4px;
+		-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .circly:hover {
+	left: 5px;
+	top: 5px;
+	cursor: pointer;
 	box-shadow: rgba(0,0,0,0.2) 5px 4px 3px;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -67,7 +75,7 @@ a div.circly p {
 
 	color: white;
 	text-decoration: none;
-	line-height: inherit;
+	line-height: 1.1;
 	cursor: pointer;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -79,7 +87,7 @@ a div.circly p {
 a:hover div.circly p {
 	color: white;
 	text-decoration: underline;
-	line-height: inherit;
+	line-height: 1.1;
 	cursor: pointer;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -150,7 +158,7 @@ div.circly p {
 
 	color: white;
 	text-decoration: none;
-	line-height: inherit;
+	line-height: 1.1;
 	cursor: pointer;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -162,11 +170,10 @@ div.circly p {
 div.circly:hover p {
 	color: white;
 	text-decoration: underline;
-	line-height: inherit;
+	line-height: 1.1;
 	cursor: pointer;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-}
