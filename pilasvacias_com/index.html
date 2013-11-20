@@ -112,38 +112,34 @@
 		$("ul.nav").children("li").click(function (){
 			$("ul.nav").children("li").removeClass("active");
 			$(this).addClass("active");
-
-			$("button.navbar-toggle").click();
+			if ($("button.navbar-toggle").is(":visible")) {
+				$("button.navbar-toggle").click();
+			}
 		});
-
 
 		if(window.location.href.indexOf("homepage") > -1) {
 			$("#homepage").css('display', 'block');
-
 		}
 		if(window.location.href.indexOf("about-us") > -1) {
 			$("ul.nav").children("li").removeClass("active");
 			$("ul.nav").children("li").eq(1).addClass("active");
 			$("#homepage").css('display', 'none');
 			$("#about-us").css('display', 'block');
-			var index = 0;
-			interval = setInterval(function() {
-				k(arr[index++]);
-			} ,250);
+			// var index = 0;
+			// interval = setInterval(function() {
+			// 	k(arr[index++]);
+			// } ,250);
 		}	if(window.location.href.indexOf("contact") > -1) {
 			$("ul.nav").children("li").removeClass("active");
 			$("ul.nav").children("li").eq(2).addClass("active");
 			$("#homepage").css('display', 'none');
 			$("#contact").css('display', 'block');
 		}
-
-
 	});
 
 	$(window).bind('hashchange', function() {
 		if(window.location.href.indexOf("about-us") > -1) {
 			$("#about-us").fadeIn(1000);
-
 			// var index = 0;
 			// interval = setInterval(function() {
 			// 	k(arr[index++]);
