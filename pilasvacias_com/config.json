@@ -1,0 +1,39 @@
+{
+  "vars": {
+    "@brand-primary": "#1D1D1D",
+    "@body-bg": "@brand-primary",
+    "@text-color": "#FFF",
+    "@link-color": "#e44d26",
+    "@link-hover-color": "darken(@link-color, 18%)",
+    "@code-bg": "#282828",
+    "@navbar-default-color": "#FFF",
+    "@navbar-default-bg": "#1D1D1D",
+    "@navbar-default-border": "darken(@navbar-default-bg, 7%)",
+    "@navbar-default-link-color": "#e44d26",
+    "@navbar-default-link-hover-color": "#FFF",
+    "@navbar-default-link-hover-bg": "@navbar-default-link-color",
+    "@navbar-inverse-color": "#1D1D1D",
+    "@navbar-inverse-bg": "#FFF",
+    "@navbar-inverse-border": "darken(@navbar-inverse-bg, 10%)",
+    "@navbar-inverse-link-color": "#e44d26",
+    "@navbar-inverse-link-hover-color": "#1D1D1D",
+    "@navbar-inverse-link-hover-bg": "@navbar-inverse-link-color",
+    "@dropdown-bg": "#1D1D1D",
+    "@dropdown-link-color": "#e44d26",
+    "@dropdown-link-hover-color": "darken(@dropdown-link-color, 5%)"
+  },
+  "css": [
+    "forms.less",
+    "navs.less",
+    "navbar.less",
+    "dropdowns.less",
+    "utilities.less",
+    "responsive-utilities.less"
+  ],
+  "js": [
+    "dropdown.js",
+    "tab.js",
+    "collapse.js",
+    "transition.js"
+  ]
+}
