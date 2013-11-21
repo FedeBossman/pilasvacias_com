@@ -444,6 +444,26 @@ a.sb.light-gray:hover:after,
 	background-color: #d9d9d9;
 }
 
+/* pilasGray color */
+a.sb.pilasGray,
+.sb.pilasGray a,
+a.sb.pilasGray:after,
+.sb.pilasGray a:after {
+	background-color: #1d1d1d;
+	border-color: #3f3f3f;
+	color: #fff;
+}
+a.sb.pilasGray:hover:after,
+.sb.pilasGray a:hover:after {
+	background-image: none;
+}
+a.sb.pilasGray:hover,
+.sb.pilasGray a:hover,
+a.sb.pilasGray:hover:after,
+.sb.pilasGray a:hover:after {
+	background-color: #acabab;
+}
+
 /* light-blue color */
 a.sb.light-blue,
 .sb.light-blue a,
@@ -769,6 +789,11 @@ a.sb.gray.twitter,
 	background-image: url(../images/social/white_twitter_bird.png);
 }
 
+a.sb.pilasGray a.twitter,
+a.sb.pilasGray.twitter {
+	background-image: url(../images/social/blue_twitter_bird.png);
+}
+
 a.sb.blue.facebook,
 .sb.blue a.facebook,
 a.sb.purple.facebook,
@@ -991,4 +1016,7 @@ a.sb.custom.photo {
 }
 a.sb.custom.comment {
 	background-image: url(../images/social/custom-icon-comment.png);
+}
+a.sb.custom.twitty {
+	background-image: url(../images/social/new_twitter.png);
 }
