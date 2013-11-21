@@ -350,7 +350,7 @@ a.sb.orange,
 .sb.orange a,
 a.sb.orange:after,
 .sb.orange a:after {
-	background-color: #ff9600;
+	background-color: #e44d26;
 	border-color: #c35505;
 	color: #fff;
 }
@@ -362,7 +362,12 @@ a.sb.orange:hover,
 .sb.orange a:hover,
 a.sb.orange:hover:after,
 .sb.orange a:hover:after {
-	background-color: #ffa500;
+	background-color: #fff;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-ms-transition: all 0.1 ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 /* brown color */
@@ -977,21 +982,21 @@ a.sb.email {
 
 /* custom icon */
 a.sb.custom {
-	width: 80px;
-	height: 80px;
-	
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	width: 95px;
+	height: 95px;
+
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
 }
-a.sb.custom:after {
+/*a.sb.custom:after {
 	background-image: url(../images/social/custom-bg.png);
 
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
 }
-
+*/
 /* custom icon blue */
 a.sb.custom.blue {
 	border-color: #96a8af;
@@ -1017,6 +1022,7 @@ a.sb.custom.photo {
 a.sb.custom.comment {
 	background-image: url(../images/social/custom-icon-comment.png);
 }
+
 a.sb.custom.twitty {
-	background-image: url(../images/social/new_twitter.png);
+	background-image: url(../images/social/custom_twitter.png);
 }
