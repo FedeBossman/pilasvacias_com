@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);*/
 body {
 	font-family: 'Calibri',arial,sans-serif;
 
@@ -9,9 +9,11 @@ body {
 	padding: 0;
 	font-size: 0.875em;
 	color: #FFFFFF;	
+	overflow-y: scroll;
 }
 
 img.bg { 
+	position: absolute;
 	/* Set rules to fill background */
 	min-height: 100%;
 	min-width: 1024px;
@@ -35,17 +37,23 @@ img.bg {
 
 
 #homepage {
-	position: relative;
 
 }
 
 #about-us {
 	display: none;
-	overflow: hidden;
 }
 
 #contact {
 	display: none;
+}
+
+.main-container {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 50px;
 }
 
 .body {
@@ -64,4 +72,8 @@ img.bg {
 	.body {
 		padding: 50px 15px;
 	}
+}
+
+.bgnd {	
+	background: url("../images/logo.png") center center no-repeat;
 }

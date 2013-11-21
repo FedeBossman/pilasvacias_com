@@ -21,9 +21,10 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- Social CSS -->
+	<link href="css/social-buttons.css" rel="stylesheet">
 
 	<!-- SCRIPTS -->
-	<script src="js/custom.js" ></script>
 	<script src="js/jquery-2.0.3.js" ></script>
 	<script src="js/bootstrap.min.js"></script>
 
@@ -80,11 +81,6 @@
 	}
 
 	// window.onload = nextSong;
-
-	function moveTo(contentArea){
-		window.location.href = contentArea;
-	}
-
 	</script>
 
 	<script>
@@ -108,7 +104,7 @@
 	}
 
 	$(document).ready(function () {
-
+		/*Changes activated header section. Also collapses in case of responsive drawer*/
 		$("ul.nav").children("li").click(function (){
 			$("ul.nav").children("li").removeClass("active");
 			$(this).addClass("active");
@@ -117,12 +113,12 @@
 			}
 		});
 
+		/*Decides which view will appear*/
 		if(window.location.href.indexOf("homepage") > -1) {
 			$("#homepage").css('display', 'block');
 		}
 		if(window.location.href.indexOf("about-us") > -1) {
-			$("ul.nav").children("li").removeClass("active");
-			$("ul.nav").children("li").eq(1).addClass("active");
+			activateHeader(1);
 			$("#homepage").css('display', 'none');
 			$("#about-us").css('display', 'block');
 			// var index = 0;
@@ -130,39 +126,56 @@
 			// 	k(arr[index++]);
 			// } ,250);
 		}	if(window.location.href.indexOf("contact") > -1) {
-			$("ul.nav").children("li").removeClass("active");
-			$("ul.nav").children("li").eq(2).addClass("active");
+			activateHeader(2);
 			$("#homepage").css('display', 'none');
 			$("#contact").css('display', 'block');
 		}
 	});
 
 	$(window).bind('hashchange', function() {
-		if(window.location.href.indexOf("about-us") > -1) {
-			$("#about-us").fadeIn(1000);
+		if(window.location.href.indexOf("about-us") > -1) {	
+			changeSection("#about-us");	
 			// var index = 0;
 			// interval = setInterval(function() {
 			// 	k(arr[index++]);
 			// } ,250);
-		} else {	
-			clearInterval(interval);
-			$("#about-us").fadeOut(1000);
+		// } else {	
+			// clearInterval(interval);			
+			
 			// $( "div.circly" ).fadeTo(0, 0);
 			// $( "div.circly" ).css('visibility', 'hidden');
 		}
 
 		if(window.location.href.indexOf("homepage") > -1) {
-			$("#homepage").fadeIn(1000);
-		} else {
-			$("#homepage").fadeOut(1000);
+			changeSection("#homepage");
 		}
-
 		if(window.location.href.indexOf("contact") > -1) {
-			$("#contact").fadeIn(1000);
-		} else {
-			$("#contact").fadeOut(1000);
-		}
+			changeSection("#contact");
+		} 
 	});
+
+	function activateHeader(index) {
+		$("ul.nav").children("li").removeClass("active");
+		$("ul.nav").children("li").eq(index).addClass("active");
+	}
+
+	function changeSection(fadeInSection) {
+		
+		if (fadeInSection != "#homepage") {
+			$("#homepage").stop(true, true);
+			$("#homepage").fadeOut(600);			
+		}
+		if (fadeInSection != "#about-us") {
+			$("#about-us").stop(true, true);
+			$("#about-us").fadeOut(600);
+		}
+		if (fadeInSection != "#contact") {
+			$("#contact").stop(true, true);
+			$("#contact").fadeOut(600);
+		}
+		$(fadeInSection).fadeIn(600);
+
+	}
 
 	</script>
 
@@ -191,11 +204,27 @@
 		</div>
 	</div>
 
-	<div id="homepage" >
-		<img src="img/negro.png" alt="Empty Background" class="bg">
+	<div id="homepage" class="main-container bgnd" >
+<p>
+	<a href="#" class="sb circle no-shadow no-border twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border blue twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border purple twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border red twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border green twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border orange twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border brown twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border black twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border gray twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border light-gray twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border light-blue twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border light-purple twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border pink twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border light-green twitter">Twitter</a>
+	<a href="#" class="sb circle no-shadow no-border yellow twitter">Twitter</a>
+</p>
 	</div>
 
-	<div class="body" id="about-us">
+	<div class="main-container body" id="about-us">
 		<div class="circly-holder">
 			<div class="circly" id="izan">
 				<img src="img/izan.jpg"></img>
@@ -252,7 +281,7 @@
 
 	</div>
 
-	<div class="body" id = "contact">
+	<div class="main-container body" id = "contact">
 		<!-- Contact -->
 		<article class="cardy box style3">
 			<header>
