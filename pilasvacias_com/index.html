@@ -144,6 +144,8 @@
 		}
 
 		if(window.location.href.indexOf("homepage") > -1) {
+			$("ul.nav").children("li").removeClass("active");
+			$("ul.nav").children("li").eq(0).addClass("active");
 			changeSection("#homepage");
 		}
 		if(window.location.href.indexOf("contact") > -1) {
@@ -265,12 +267,11 @@
 
 	<div class="main-container body" id = "contact">
 		<!-- Contact -->
-		<article class="cardy box style3">
-
-			<header>
+		<article class="cardy">
+			<address>
 				<h2>¿Interesado en nosotros?</h2>
-				<p>Envía tu propuesta de trabajo a pilasvacias@gmail.com</p>
-			</header>
+				<p>Envía tu propuesta de trabajo a <a href="mailto:pilasvacias@gmail.com">pilasVacias@gmail.com</a></p>
+			</address>
 <!-- 			<form>
 				<div class="row half">
 					<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
