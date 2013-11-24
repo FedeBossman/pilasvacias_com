@@ -59,7 +59,6 @@
 	mysongs[1] = "Mardy bum.mp3";
 	mysongs[2] = "Lift.mp3";
 
-	//function $(id){return document.getElementById(id)}
 	var nextSong = function nextSong(){
 		// try{
 		// 	currentSong.nextSibling.onclick(); 
@@ -105,6 +104,7 @@
 
 	$(document).ready(function () {
 		/*Changes activated header section. Also collapses in case of responsive drawer*/
+
 		$("ul.nav").children("li").click(function (){
 			$("ul.nav").children("li").removeClass("active");
 			$(this).addClass("active");
@@ -121,11 +121,8 @@
 			activateHeader(1);
 			$("#homepage").css('display', 'none');
 			$("#about-us").css('display', 'block');
-			// var index = 0;
-			// interval = setInterval(function() {
-			// 	k(arr[index++]);
-			// } ,250);
-		}	if(window.location.href.indexOf("contact") > -1) {
+		}	
+		if(window.location.href.indexOf("contact") > -1) {
 			activateHeader(2);
 			$("#homepage").css('display', 'none');
 			$("#contact").css('display', 'block');
@@ -174,6 +171,7 @@
 			$("#contact").fadeOut(600);
 		}
 		$(fadeInSection).fadeIn(600);
+		
 
 	}
 
@@ -255,7 +253,7 @@
 		<div class = "cardy" id ="profile" >
 			<p>Somos un equipo estupendo blahblahblah...</p>
 			<p>Dedicados principalmente al desarrollo de aplicaciones iOS y Android y páginas web.</p>
-			<h1>Nuestros trabajos:</h1>
+			<h1>Nuestras colaboraciones:</h1>
 			<ul>
 				<li>MegaStar FM (<a href = "http://MegaStar.FM">Web</a>, <a href="https://itunes.apple.com/es/app/megastar-fm/id682380109?mt=8">iPhone</a> y <a href = "https://play.google.com/store/apps/details?id=fm.solotemazos">Android</a>)</li>
 				<li>Welvi (<a href = "https://play.google.com/store/apps/details?id=com.welvi.app">Android</a>)</li>
@@ -268,6 +266,7 @@
 	<div class="main-container body" id = "contact">
 		<!-- Contact -->
 		<article class="cardy box style3">
+
 			<header>
 				<h2>¿Interesado en nosotros?</h2>
 				<p>Envía tu propuesta de trabajo a pilasvacias@gmail.com</p>

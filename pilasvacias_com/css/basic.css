@@ -1,43 +1,30 @@
 /*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);*/
-body {
-	font-family: 'Calibri',arial,sans-serif;
+/*
+background: #456;
+background:#148;
+background:#628;
+background:#9c9;
+background: #456;
+background:#c9c;
+background-color: yellow;
+*/
 
-	background: #1D1D1D no-repeat left top; /* url(img/negro.png)*/
+/*    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;*/
+body {
+	line-height: 1.428571429;
+	color: #ffffff;
+	background-color: #2f2f2f;
+	font-family: 'Calibri',arial,sans-serif;
+	font-size: 15px;
 	background-size: 100%;
-	background-color: #1D1D1D;
 	margin: 0;
 	padding: 0;
-	font-size: 0.875em;
-	color: #FFFFFF;	
-	overflow-y: scroll;
+	overflow-y: scroll;	
 }
-
-img.bg { 
-	position: absolute;
-	/* Set rules to fill background */
-	min-height: 100%;
-	min-width: 1024px;
-	
-	/* Set up proportionate scaling */
-	width: 100%;
-	height: auto;
-	
-	/* Set up positioning */
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-	img.bg {
-		left: 50%;
-		margin-left: -512px;   /* 50% */
-	}
-}
-
 
 #homepage {
-
+	bottom:0;
 }
 
 #about-us {
@@ -51,29 +38,83 @@ img.bg {
 .main-container {
 	position: absolute;
 	left: 0;
-	bottom: 0;
 	right: 0;
-	top: 50px;
+	top: 0;
 }
 
 .body {
-	padding: 50px;
-}
-
-
-@media only screen and (max-width: 1023px) {
-	.body {
-
-		padding: 50px 30px;
-	}
-}
-
-@media only screen and (max-width: 760px) {
-	.body {
-		padding: 50px 15px;
-	}
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 50px;
+	padding-top: 50px;	
 }
 
 .bgnd {	
 	background: url("../images/logo.png") center center no-repeat;
+}
+
+.cardy {
+	position: relative;
+	margin-top: 15px;
+	padding: 2em;
+	background: #1d1d1d;
+	float: left;
+	width: 100%;
+	box-shadow: rgba(0,0,0,0.6) 8px 8px 7px;
+}
+
+.social-button-holder {
+	float:right;
+	width:135px;
+	text-align: center;
+} 
+
+.social-button-holder > * {
+	display: inline-block;
+	padding-bottom: 15px;	
+}
+
+.profile-main {	
+	float: left;
+	width: 83%;
+}
+
+
+
+
+@media only screen and (max-width: 1023px) {
+	.body {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.profile-main {		
+		width: 78%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.body {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.profile-main {		
+		width: 100%;
+	}
+
+	.social-button-holder {
+		clear: both;
+		float: none;
+		width: 100%;
+		padding-top:5px;
+	} 
+
+	.social-button-holder > * {
+		display: inline-block;
+		padding-bottom: 0px;
+		padding-right: 5px;
+		padding-left: 5px;
+		
+	}
 }

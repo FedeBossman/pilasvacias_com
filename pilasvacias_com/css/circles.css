@@ -9,10 +9,10 @@
 	vertical-align: top;
 	/*visibility: hidden;*/
 	/*opacity: 0;*/
-	background-color: #282828;
-	box-shadow: rgba(0,0,0,0.2) 8px 8px 7px;
+	background-color: #1d1d1d;
+	box-shadow: rgba(0,0,0,0.5) 8px 8px 7px;
 	padding: 6px 3px 3px 4px;
-		-webkit-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	-ms-transition: all 0.2s ease-in-out;
@@ -23,7 +23,7 @@
 	left: 5px;
 	top: 5px;
 	cursor: pointer;
-	box-shadow: rgba(0,0,0,0.2) 5px 4px 3px;
+	box-shadow: rgba(0,0,0,0.6) 5px 4px 3px;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -41,29 +41,6 @@
 	padding-top: 4px;
 	height: 2.7em;
 	overflow: hidden;
-}
-
-.cardy {
-	position: relative;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 15px;
-	padding: 2em;
-	background: #282828;
-	box-shadow: rgba(0,0,0,0.2) 8px 8px 7px;
-
-}
-.cardy-right {
-	position: relative;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 15px;
-	padding: 2em;
-	width: 300px;
-	background-color: #1F1F1F;
-	box-shadow: rgba(0,0,0,0.2) 8px 8px 7px;
-	float: right;
-	z-index: 10;
 }
 
 div.circly img {
@@ -114,3 +91,4 @@ div.circly:hover p {
 	-o-transition: all 0.2s ease-in-out;
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
+}
