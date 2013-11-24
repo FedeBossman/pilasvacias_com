@@ -1023,6 +1023,18 @@ a.sb.custom.comment {
 	background-image: url(../images/social/custom-icon-comment.png);
 }
 
-a.sb.custom.twitty {
+a.sb.custom.c_twitter {
 	background-image: url(../images/social/custom_twitter.png);
+}
+
+a.sb.custom.c_facebook {
+	background-image: url(../images/social/custom_facebook.png);
+}
+
+a.sb.custom.c_github {
+	background-image: url(../images/social/custom_github.png);
+}
+
+a.sb.custom.c_linkedin {
+	background-image: url(../images/social/custom_linkedin.png);
 }
