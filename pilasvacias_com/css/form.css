@@ -37,6 +37,11 @@ input[type="text"]
 	margin-bottom:10px;
 }
 
+input[type="text"]:disabled
+{
+	background-color: #aaa;
+}
+
 /*CHECKBOX*/
 input[type=checkbox] {
 	padding-left:5px;
