@@ -107,7 +107,7 @@ function printError() {
 
 				<div class="main-container body">
 					<div class ="cardy">
-						<form name="cuestionario" id ="cuestionario" action="encuesta2" method="post">
+						<form name="cuestionario" id ="cuestionario" action="encuesta" method="post">
 							<h1> ENCUESTA: Relación entre sistema de comunicación mediante la música y sistema social.</h1>
 							<hr/>
 							<div class = "previous-info"> 
