@@ -60,6 +60,8 @@ if(!isset($_SESSION['last_email_sent']) || $_SESSION['last_email_sent']==null ||
 	printRepeat();
 }
 
+include("_tail.php");
+
 function set_session($attr, $val){
 
 	$_SESSION[$attr] = $val;
