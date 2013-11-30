@@ -5,7 +5,7 @@
 							<p>¿Quieres demostrar que tu forma de verstir se asocia con lo que escuchas?
 								¿Quieres contarnos tus discusiones con tus amigos sobre gustos musicales?
 								¿O prefieres revelar que canciones escuchas únicamente cuando estás a solas? 
-								Para todo esto y mucho más envíanos un mail a <a href="mailto:muthingucm@hotmail.com">MuthingUCM@hotmail.com</a> y participa!</p>
+								Para todo esto y mucho más <a href="http://muthingucm.tumblr.com/submit" target="_blank">cuéntanos</a> y participa!</p>
 						</div>
 
 						<div class = "social-button-holder">
