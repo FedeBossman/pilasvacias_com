@@ -13,8 +13,7 @@
 	<meta name="MobileOptimized" content="320">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-touch-fullscreen" content="yes"/>
-
-	<link type="text/css" rel="stylesheet" href="css/form.css">
+	
 	<link type="text/css" rel="stylesheet" href="css/basic.css">
 	<link type="text/css" rel="stylesheet" href="css/circles.css"/>
 
@@ -26,18 +25,23 @@
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic">
 
+	<link type="text/css" rel="stylesheet" href="css/form.css">
+
 	<style>
 	body {
 		font-family: 'Roboto';
 	}
 	h1 {
 		font-family: 'Roboto Condensed', serif;
+		color:#fff;
 	}
 	h2 {
 		font-family: 'Roboto Condensed', serif;
+		color:#fff;
 	}
 	h3 {
 		font-family: 'Roboto Condensed', serif;
+		color:#fff;		
 	}
 
 	</style>

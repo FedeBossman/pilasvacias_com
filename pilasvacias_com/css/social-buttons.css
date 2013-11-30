@@ -469,6 +469,27 @@ a.sb.pilasGray:hover:after,
 	background-color: #acabab;
 }
 
+/* muthing-blue color */
+a.sb.muthing-blue,
+.sb.muthing-blue a,
+a.sb.muthing-blue:after,
+.sb.muthing-blue a:after {
+	background-color: #17f0ff;
+	border-color: #3f3f3f;
+	color: #fff;
+}
+a.sb.muthing-blue:hover:after,
+.sb.muthing-blue a:hover:after {
+	background-image: none;
+}
+a.sb.muthing-blue:hover,
+.sb.muthing-blue a:hover,
+a.sb.muthing-blue:hover:after,
+.sb.muthing-blue a:hover:after {
+	background-color: #acabab;
+}
+
+
 /* light-blue color */
 a.sb.light-blue,
 .sb.light-blue a,
