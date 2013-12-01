@@ -37,13 +37,12 @@ function printResultsForEmail() {
 	$mensaje .= "Pregunta 1: " . $_POST['question1'] . "\n";
 
 	$likes = "";
-	for ($i = 0; $i < 16; $i++) {
+	for ($i = 0; $i < 22; $i++) {
 		$q = "question2_" . $i;
 		if (isset($_POST[$q])) {
 			$likes .= $_POST[$q] . " // ";
 		}
 	}
-
 
 	$mensaje .= "Pregunta 2: " . $likes . $_POST['question2_otros'] . "\n";
 
@@ -51,12 +50,21 @@ function printResultsForEmail() {
 
 	$mensaje .= "Pregunta 4: " . $_POST['question4'] . "\n";
 	$mensaje .= "Pregunta 5: " . $_POST['question5'] . "\n";
-	$mensaje .= "Pregunta 6: " . $_POST['question6'] . "\n";
+
+	$likes = "";
+	for ($i = 0; $i < 8; $i++) {
+		$q = "question6_" . $i;
+		if (isset($_POST[$q])) {
+			$likes .= $_POST[$q] . " // ";
+		}
+	}
+
+	$mensaje .= "Pregunta 6: " . $likes . "\n";
 	$mensaje .= "Pregunta 7: " . $_POST['question7'] . "\n";
 
-	$mensaje .= "Pregunta 8: " . $_POST['question8'] . " //cuando: " . $_POST['question8_b'] . " //como: " . $_POST['question8_c'] . " //donde: " . $_POST['question8_d'] . "\n";
+	$mensaje .= "Pregunta 8: " . $_POST['question8'] . " //cuándo: " . $_POST['question8_b'] . " //cómo: " . $_POST['question8_c'] . " //dónde: " . $_POST['question8_d'] . "\n";
 	$mensaje .= "Pregunta 9: " . $_POST['question9'] . " // " . $_POST['question9_b'] . "\n";
-	$mensaje .= "Pregunta 10: " . $_POST['question10'] . " // " . $_POST['question10_b'] .  "\n";
+	$mensaje .= "Pregunta 10: " . $_POST['question10'] . " // cuál:" . $_POST['question10_b'] . " // cuándo:" . $_POST['question10_c'] . "\n";
 
 	$mensaje .= "Pregunta 11: " . $_POST['question11'] . "\n";
 	$mensaje .= "Pregunta 12: " . $_POST['question12'] . "\n";
@@ -172,68 +180,92 @@ function printError() {
 										<div class = "question"><div class ="question-number">2.</div> ¿Qué tipo de música sueles escuchar?</div><br/>
 										<div class = "check-holder">
 											<div>
-												<input type="checkbox" id ="q2-1" name="question2_0" value="Clásica"> 
-												<label for="q2-1"><span></span>Clásica</label>
+												<input type="checkbox" id ="q2-1" name="question2_0" value="Blues"> 
+												<label for="q2-1"><span></span>Blues</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-2" name="question2_1" value="Dubstep" > 
-												<label for="q2-2"><span></span>Dubstep</label>
+												<input type="checkbox" id ="q2-2" name="question2_1" value="Clásica" > 
+												<label for="q2-2"><span></span>Clásica</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-3" name="question2_2" value="Electrónica">
-												<label for="q2-3"><span></span>Electrónica</label>
+												<input type="checkbox" id ="q2-3" name="question2_2" value="Dance">
+												<label for="q2-3"><span></span>Dance</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-4" name="question2_3" value="Flamenco" > 
-												<label for="q2-4"><span></span>Flamenco</label>
+												<input type="checkbox" id ="q2-4" name="question2_3" value="Dubstep" > 
+												<label for="q2-4"><span></span>Dubstep</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-5" name="question2_4" value="Hip-hop">
-												<label for="q2-5"><span></span>Hip-hop</label>
+												<input type="checkbox" id ="q2-5" name="question2_4" value="Electrónica">
+												<label for="q2-5"><span></span>Electrónica</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-6" name="question2_5" value="Indie" >
-												<label for="q2-6"><span></span>Indie</label>
+												<input type="checkbox" id ="q2-6" name="question2_5" value="Flamenco" >
+												<label for="q2-6"><span></span>Flamenco</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-7" name="question2_6" value="Latino">
-												<label for="q2-7"><span></span>Latino</label>
+												<input type="checkbox" id ="q2-7" name="question2_6" value="Funk">
+												<label for="q2-7"><span></span>Funk</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-8" name="question2_7" value="Metal" >
-												<label for="q2-8"><span></span>Metal</label>
+												<input type="checkbox" id ="q2-8" name="question2_7" value="Hip-Hop" >
+												<label for="q2-8"><span></span>Hip-Hop</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-9" name="question2_8" value="Musical"> 
-												<label for="q2-9"><span></span>Musical</label>
+												<input type="checkbox" id ="q2-9" name="question2_8" value="Indie"> 
+												<label for="q2-9"><span></span>Indie</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-10" name="question2_9" value="Pop" > 
-												<label for="q2-10"><span></span>Pop</label>
+												<input type="checkbox" id ="q2-10" name="question2_9" value="Jazz" > 
+												<label for="q2-10"><span></span>Jazz</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-11" name="question2_10" value="Punk"> 
-												<label for="q2-11"><span></span>Punk</label>
+												<input type="checkbox" id ="q2-11" name="question2_10" value="Latina"> 
+												<label for="q2-11"><span></span>Latina</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-12" name="question2_11" value="Rap" > 
-												<label for="q2-12"><span></span>Rap</label>
+												<input type="checkbox" id ="q2-12" name="question2_11" value="Metal" > 
+												<label for="q2-12"><span></span>Metal</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-13" name="question2_12" value="Reggae"> 
-												<label for="q2-13"><span></span>Reggae</label>
+												<input type="checkbox" id ="q2-13" name="question2_12" value="Pop"> 
+												<label for="q2-13"><span></span>Pop</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-14" name="question2_13" value="Reggaetón" > 
-												<label for="q2-14"><span></span>Reggaetón</label>
+												<input type="checkbox" id ="q2-14" name="question2_13" value="Punk" > 
+												<label for="q2-14"><span></span>Punk</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-15" name="question2_14" value="Rock"> 
-												<label for="q2-15"><span></span>Rock</label>
+												<input type="checkbox" id ="q2-15" name="question2_14" value="R&B"> 
+												<label for="q2-15"><span></span>R&B</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-16" name="question2_15" value="Techno" > 
-												<label for="q2-16"><span></span>Techno</label>
+												<input type="checkbox" id ="q2-16" name="question2_15" value="Reggae" > 
+												<label for="q2-16"><span></span>Reggae</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-17" name="question2_16" value="Reggaetón"> 
+												<label for="q2-17"><span></span>Latina</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-18" name="question2_17" value="Rock" > 
+												<label for="q2-18"><span></span>Rock</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-19" name="question2_18" value="Rumba"> 
+												<label for="q2-19"><span></span>Rumba</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-20" name="question2_19" value="Soul" > 
+												<label for="q2-20"><span></span>Soul</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-21" name="question2_20" value="Teatro musical"> 
+												<label for="q2-21"><span></span>Teatro musical</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q2-22" name="question2_21" value="Techno" > 
+												<label for="q2-22"><span></span>Techno</label>
 											</div>
 											<br/>
 										</div>
@@ -270,6 +302,10 @@ function printError() {
 												<input type="radio" id="q4-n" name="question4" value="No" > 
 												<label for="q4-n"><span></span>No</label>	
 											</div>
+											<div>
+												<input type="radio" id="q4-m" name="question4" value="A veces"> 
+												<label for="q4-m"><span></span>A veces</label>	
+											</div>
 										</div>
 									</div>
 									
@@ -280,26 +316,50 @@ function printError() {
 									
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">6.</div> ¿Qué soporte usas?</div>
-										<select name="question6">
-											<option value="" style="display:none;"></option>
-											<option value="walkman">walkman</option>
-											<option value="diskman">diskman</option>
-											<option value="mp3">mp3, mp4, mp5</option>
-											<option value="ipod">ipod (classic, touch...)</option>
-											<option value="móvil">móvil</option>
-											<option value="ordenador">ordenador</option>
-											<option value="radio">radio</option>
-											<option value="otro">otro</option>
-										</select><br/>
+
+										<div class = "check-holder">
+											<div>
+												<input type="checkbox" id ="q6-1" name="question6_0" value="Discman"> 
+												<label for="q6-1"><span></span>Discman</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-2" name="question6_1" value="iPod" > 
+												<label for="q6-2"><span></span>iPod</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-3" name="question6_2" value="Móvil">
+												<label for="q6-3"><span></span>Móvil</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-4" name="question6_3" value="Mp3" > 
+												<label for="q6-4"><span></span>Mp3, Mp4, Mp5</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-5" name="question6_4" value="Ornedanor">
+												<label for="q6-5"><span></span>Ornedanor</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-6" name="question6_5" value="Radio" >
+												<label for="q6-6"><span></span>Radio</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-7" name="question6_6" value="Walkman">
+												<label for="q6-7"><span></span>Walkman</label>
+											</div>
+											<div>
+												<input type="checkbox" id ="q6-8" name="question6_7" value="Otros">
+												<label for="q6-8"><span></span>Otros</label>
+											</div>
+										</div>
 									</div>
-									
+
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">7.</div> ¿Cómo descubres nueva música?</div>
 										<input type="text" name="question7" value=""><br/>
 									</div>
-									
+
 									<div class="question-container">
-										<div class = "question"><div class ="question-number">8.</div> Último disco: </div>
+										<div class = "question"><div class ="question-number">8.</div> Último disco que has adquirido: </div>
 										<input type="text" name="question8" value=""><br/>
 										<div class = "question">¿Cuándo?</div>
 										<input type="text" name="question8_b" value=""><br/>
@@ -324,14 +384,14 @@ function printError() {
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="question-container">
-										<div class = "question"><div class ="question-number">9.</div> Último concierto: </div>
+										<div class = "question"><div class ="question-number">9.</div> Último concierto al que has asistido: </div>
 										<input type="text" name="question9" value=""><br/>
 										<div class = "question">¿Cuándo?</div>
 										<input type="text" name="question9_b" value=""><br/>
 									</div>
-									
+
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">10.</div> ¿Has ido a algún musical? </div>
 										<div class = "check-holder">
@@ -344,11 +404,12 @@ function printError() {
 												<label for="q10-n"><span></span>No</label>	
 											</div>
 										</div>
-
-										<div class = "question">¿Cuándo?</div>
+										<div class = "question">¿Cuál?</div>
 										<input type="text" name="question10_b" value=""><br/>
+										<div class = "question">¿Cuándo?</div>
+										<input type="text" name="question10_c" value=""><br/>
 									</div>
-									
+
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">11.</div> ¿Tus amistades tienen tus mismos gustos musicales? </div>
 										<div class = "check-holder">
@@ -366,7 +427,7 @@ function printError() {
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">12.</div> ¿Te avergüenzas de alguna canción de tu lista de reproducción? </div>
 										<div class = "check-holder">
@@ -447,8 +508,10 @@ function printError() {
 									sz[i].onclick = function() {
 										if (this.value == "Sí") {
 											document.forms["cuestionario"]["question10_b"].disabled = false;
+											document.forms["cuestionario"]["question10_c"].disabled = false;
 										} else if (this.value == "No") {
 											document.forms["cuestionario"]["question10_b"].disabled = true;
+											document.forms["cuestionario"]["question10_c"].disabled = true;
 										}
 									};
 								}
