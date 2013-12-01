@@ -7,8 +7,7 @@
 	text-align: center;
 	width:120px;
 	vertical-align: top;
-	/*visibility: hidden;*/
-	/*opacity: 0;*/
+	font-size: 14px;
 	background-color: #1d1d1d;
 	box-shadow: rgba(0,0,0,0.5) 5px 5px 3px;
 	padding: 6px 3px 3px 4px;

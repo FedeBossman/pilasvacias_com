@@ -38,7 +38,7 @@ function printResultsForEmail() {
 
 	$likes = "";
 	for ($i = 0; $i < 16; $i++) {
-		$q = "question2-" . $i;
+		$q = "question2_" . $i;
 		if (isset($_POST[$q])) {
 			$likes .= $_POST[$q] . " // ";
 		}

@@ -5,6 +5,9 @@
 
 	<title>pilasVacias™</title>
 
+	<meta name="keywords" content="desarrollo, software, pilasVacias, android, iOS">
+	<meta name="description" content="pilasVacias, grupo independiente de desarrollo de software">
+
 	<!-- Set the viewport width to device width for mobile -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,9 +27,32 @@
 	<!-- Social CSS -->
 	<link href="css/social-buttons.css" rel="stylesheet">
 
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic">
+
+	<style>
+	body {
+		font-family: 'Roboto';
+	}
+	h1 {
+		font-family: 'Roboto Condensed', serif;
+		color:#fff;
+	}
+	h2 {
+		font-family: 'Roboto Condensed', serif;
+		color:#fff;
+	}
+	h3 {
+		font-family: 'Roboto Condensed', serif;
+		color:#fff;		
+	}
+
+	</style>
+
 	<!-- SCRIPTS -->
 	<script src="js/jquery-2.0.3.js" ></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/navigation.js"></script>
 
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,136 +77,6 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 	</script>
-
-	<script>
-	var currentS = 0;
-	var mysongs = new Array();
-	mysongs[0] = "I Bet You Look Good On the Dance Flo.mp3";
-	mysongs[1] = "Mardy bum.mp3";
-	mysongs[2] = "Lift.mp3";
-
-	var nextSong = function nextSong(){
-		// try{
-		// 	currentSong.nextSibling.onclick(); 
-		// }catch(e){
-		// 	currentSong = document.querySelector("#playtable tr");
-		// 	currentSong.onclick();
-		// }
-		if (mysongs[currentS] != null) {
-			var url;
-			url = mysongs[currentS++];		
-			document.getElementById("player").src = url;
-			document.getElementById("player").play();
-		}
-		
-	};
-
-	var proba = function firstSong() {
-		return mysongs[0];
-	}
-
-	// window.onload = nextSong;
-	</script>
-
-	<script>
-	var pilasVacias_count = 10;
-	var arr = [];
-	var interval;
-	while(arr.length < pilasVacias_count){
-		var randomnumber=Math.ceil(Math.random()*pilasVacias_count - 1)
-		var found=false;
-		for(var i=0;i<arr.length;i++){
-			if(arr[i]==randomnumber){found=true;break}
-		}
-		if(!found)arr[arr.length]=randomnumber;
-	}
-
-	var k = function nextAppearance(index) {
-		if (index != pilasVacias_count) {
-			$( "div.circly").eq(index).css('visibility', 'visible');
-			$( "div.circly").eq(index).fadeTo(2000, 1);
-		}
-	}
-
-	$(document).ready(function () {
-		/*Changes activated header section. Also collapses in case of responsive drawer*/
-
-		$("ul.nav").children("li").click(function (){
-			$("ul.nav").children("li").removeClass("active");
-			$(this).addClass("active");
-			if ($("button.navbar-toggle").is(":visible")) {
-				$("button.navbar-toggle").click();
-			}
-		});
-
-		/*Decides which view will appear*/
-		if(window.location.href.indexOf("homepage") > -1) {
-			$("#homepage").css('display', 'block');
-		}
-		if(window.location.href.indexOf("about-us") > -1) {
-			activateHeader(1);
-			$("#homepage").css('display', 'none');
-			$("#about-us").css('display', 'block');
-		}	
-		if(window.location.href.indexOf("contact") > -1) {
-			activateHeader(2);
-			$("#homepage").css('display', 'none');
-			$("#contact").css('display', 'block');
-		}
-	});
-
-	$(window).bind('hashchange', function() {
-		if(window.location.href.indexOf("about-us") > -1) {	
-			changeSection("#about-us");	
-			// var index = 0;
-			// interval = setInterval(function() {
-			// 	k(arr[index++]);
-			// } ,250);
-		// } else {	
-			// clearInterval(interval);			
-			
-			// $( "div.circly" ).fadeTo(0, 0);
-			// $( "div.circly" ).css('visibility', 'hidden');
-		}
-
-		if(window.location.href.indexOf("homepage") > -1) {
-			$("ul.nav").children("li").removeClass("active");
-			$("ul.nav").children("li").eq(0).addClass("active");
-			changeSection("#homepage");
-		}
-		if(window.location.href.indexOf("contact") > -1) {
-			changeSection("#contact");
-		} 
-	});
-
-	function activateHeader(index) {
-		$("ul.nav").children("li").removeClass("active");
-		$("ul.nav").children("li").eq(index).addClass("active");
-	}
-
-	function changeSection(fadeInSection) {
-		
-		if (fadeInSection != "#homepage") {
-			$("#homepage").stop(true, true);
-			$("#homepage").fadeOut(600);			
-		}
-		if (fadeInSection != "#about-us") {
-			$("#about-us").stop(true, true);
-			$("#about-us").fadeOut(600);
-		}
-		if (fadeInSection != "#contact") {
-			$("#contact").stop(true, true);
-			$("#contact").fadeOut(600);
-		}
-		$(fadeInSection).fadeIn(600);
-		
-
-	}
-
-	</script>
-
-	<!-- Script for injecting new html depending on the profile clicked -->
-
 </head>
 <body>	
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -210,8 +106,8 @@
 
 	<div class="main-container body" id="about-us">
 		<div class="circly-holder">
-			<div class="circly" id="izan">
-				<img src="img/izan.jpg"></img>
+			<div class="circly">
+				<img src="img/izan.jpg" ></img>
 				<p>Izan Rodrigo Moreno Maroto</p>
 			</div>
 			<div class="circly">
@@ -220,7 +116,7 @@
 			</div>
 			<div class="circly">
 				<img src="img/alvo.jpg"></img>
-				<p>Alvaro M. Romero Martínez</p> 
+				<p>Álvaro M. Romero Martínez</p> 
 			</div>
 			<div class="circly">
 				<img src="img/pablo.jpg"></img>
@@ -231,12 +127,12 @@
 				<p>Álvaro Lázaro</p> 
 			</div>
 			<div class="circly">
-				<img src="img/stub.png"></img>
-				<p>David Martín Amor</p> 
-			</div>
-			<div class="circly">
 				<img src="img/misha.png"></img>
 				<p>Misha Malyga</p> 
+			</div>
+			<div class="circly">
+				<img src="img/ulyana.jpg"></img> 
+				<p>Ulyana Kravets</p> 
 			</div>
 			<div class="circly">
 				<img src="img/stub.png"></img>
@@ -247,31 +143,176 @@
 				<p>Liang Shan Ji</p>
 			</div>
 			<div class="circly">
+				<img src="img/stub.png"></img>
+				<p>David Martín Amor</p> 
+			</div>
+			<div class="circly">
 				<img src="img/varez.jpg"></img> 
 				<p>Álvaro Várez Garro</p> 
 			</div>
-			<div class="circly">
-				<img src="img/ulyana.jpg"></img> 
-				<p>Ulyana Kravets</p> 
+		</div>
+
+		<div id = "profile-container">
+			<div class = "cardy gone">
+				<div class = "profile-main">
+					Hola me llamo izan y soy una persona seria
+
+					<h1>MUY SERIA</h1>
+
+					Así que dejo acá mis sitios para que lo veas ;)
+
+					<p><strong>saludos</strong></p>
+				</div>
+
+				<div class = "social-button-holder">
+
+					<div><a href="https://linkedin.com/pub/izan-rodrigo-moreno-maroto/64/a98/68" class="sb custom circle orange no-border no-shadow c_linkedin" target="_blank">LinkedIn</a></div>
+
+					<div><a href="https://twitter.com/IzanRodrigo" class="sb custom circle orange no-border no-shadow c_twitter" target="_blank">Twitter</a></div>
+
+					<div><a href="https://www.facebook.com/izanrodrigo.morenomaroto" class="sb custom circle orange no-border no-shadow c_facebook" target="_blank">Facebook</a></div>
+
+					<div><a href="https://github.com/IzanRodrigo" class="sb custom circle orange no-border no-shadow c_github" target="_blank">GitHub</a></div>
+
+				</div>
+			</div>
+
+			<div class = "cardy gone" >
+				<div class = "profile-main">
+					Hola me llamo fede y no soy nazi
+
+					<h1>HABBA BABBA</h1>
+
+					<p><strong>saludos</strong></p>
+				</div>
+
+
+				<div class = "social-button-holder">
+
+					<div><a href="https://linkedin.com/pub/federico-gutiérrez-faraoni/83/109/54" class="sb custom circle orange no-border no-shadow c_linkedin" target="_blank">LinkedIn</a></div>
+
+					<div><a href="https://twitter.com/FedeBossman" class="sb custom circle orange no-border no-shadow c_twitter" target="_blank">Twitter</a></div>
+
+					<div><a href="https://www.facebook.com/Fede.Bossman" class="sb custom circle orange no-border no-shadow c_facebook" target="_blank">Facebook</a></div>
+
+					<div><a href="https://github.com/FedeBossman" class="sb custom circle orange no-border no-shadow c_github" target="_blank">GitHub</a></div>
+
+				</div>
+			</div>
+
+			<div class = "cardy gone">
+				<div class = "profile-main">
+					Hola me llamo Álvaro y te digo que naranjas
+
+					<h1>U.U</h1>
+
+					<p><strong>saludos</strong></p>
+				</div>
+
+
+				<div class = "social-button-holder">
+
+					<div><a href="https://linkedin.com/pub/álvaro-m-romero-martinez/76/8a8/183" class="sb custom circle orange no-border no-shadow c_linkedin" target="_blank">LinkedIn</a></div>
+
+					<div><a href="https://twitter.com/drizztneko" class="sb custom circle orange no-border no-shadow c_twitter" target="_blank">Twitter</a></div>
+
+					<div><a href="https://www.facebook.com/drizztneko" class="sb custom circle orange no-border no-shadow c_facebook" target="_blank">Facebook</a></div>
+
+					<div><a href="https://github.com/drizztneko" class="sb custom circle orange no-border no-shadow c_github" target="_blank">GitHub</a></div>
+
+				</div>
+
+			</div>
+
+			<div class = "cardy gone">
+				<div class = "profile-main">
+					Hola me llamo Pablo y bblashgahsjasghd
+
+					<h1>TAL CUAL</h1>
+
+					<p><strong>saludos</strong></p>
+				</div>
+
+
+				<div class = "social-button-holder">
+
+					<div><a href="https://linkedin.com/pub/pablo-orgaz-gonzález-carpio/42/b/423" class="sb custom circle orange no-border no-shadow c_linkedin" target="_blank">LinkedIn</a></div>
+
+					<div><a href="https://twitter.com/_Multivac" class="sb custom circle orange no-border no-shadow c_twitter" target="_blank">Twitter</a></div>
+
+					<div><a href="https://www.facebook.com/pablo.orgazgonzalezcarpio" class="sb custom circle orange no-border no-shadow c_facebook" target="_blank">Facebook</a></div>
+
+					<div><a href="https://github.com/pabloogc" class="sb custom circle orange no-border no-shadow c_github" target="_blank">GitHub</a></div>
+
+				</div>
+			</div>
+
+			<div class = "cardy gone" >
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+			<div class = "cardy gone"  >
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+			<div class = "cardy gone"  >
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+			<div class = "cardy gone" >
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+			<div class = "cardy gone" >
+				wiiiiiiiiiiiiiiiiiii
+
+				soy un chino loco
+
+				<h1>WIIIIIIIIIIII</h1>
+
+				<p><strong>saludos</strong></p>
+
+			</div>
+
+			<div class = "cardy gone">
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+			<div class = "cardy gone">
+				<p>Somos un equipo estupendo blahblahblah...</p>
+
+			</div>
+
+
+			<div class = "cardy" id ="profile" >
+				<p>Somos, mayormente, un grupo de estudiantes de la Universidad Politécnica de Madrid (Campus Sur), cursando el grado de ingeniería del software.
+					Formamos un grupo individual que se centra en aprender a desarrollar para cualquier tipo de tecnología nueva y útil para esta época. 
+					Entre nosotros se encuentran algunos diseñadores gráficos, lo cual permite completitud en nuestros proyectos.
+				</p>
+				<p>Dedicados principalmente al diseño y desarrollo de aplicaciones iOS y Android y páginas web.
+					Tenemos cierta experiencia, habiendo trabajado en proyectos de importancia a nivel nacional.						
+				</p>
+				
+				<div class="embeddy" style="padding-top:0;">
+					<h1>Nuestras colaboraciones:</h1>
+					<ul>
+						<li>MegaStar FM (<a href = "http://MegaStar.FM">Web</a>, <a href="https://itunes.apple.com/es/app/megastar-fm/id682380109?mt=8">iPhone</a> y <a href = "https://play.google.com/store/apps/details?id=fm.solotemazos">Android</a>)</li>
+						<li>Welvi (<a href = "https://play.google.com/store/apps/details?id=com.welvi.app">Android</a>)</li>
+						<li>Liga Fantástica Marca (participación en <a href = "https://play.google.com/store/apps/details?id=es.creania.marca.lfm">Android</a>)</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-
-		<div class = "cardy" id ="profile" >
-			<p>Somos un equipo estupendo blahblahblah...</p>
-			<p>Dedicados principalmente al desarrollo de aplicaciones iOS y Android y páginas web.</p>
-			<h1>Nuestras colaboraciones:</h1>
-			<ul>
-				<li>MegaStar FM (<a href = "http://MegaStar.FM">Web</a>, <a href="https://itunes.apple.com/es/app/megastar-fm/id682380109?mt=8">iPhone</a> y <a href = "https://play.google.com/store/apps/details?id=fm.solotemazos">Android</a>)</li>
-				<li>Welvi (<a href = "https://play.google.com/store/apps/details?id=com.welvi.app">Android</a>)</li>
-				<li>Liga Fantástica Marca (participación en <a href = "https://play.google.com/store/apps/details?id=es.creania.marca.lfm">Android</a>)</li>
-			</ul>
-		</div>
-
 	</div>
 
 	<div class="main-container body" id = "contact">
 		<!-- Contact -->
-		<article class="cardy">
+		<div class="cardy">
 			<address>
 				<h2>¿Interesado en nosotros?</h2>
 				<p>Envía tu propuesta de trabajo a <a href="mailto:pilasvacias@gmail.com">pilasVacias@gmail.com</a></p>
@@ -294,64 +335,8 @@
 					</div>
 				</div>
 			</form> -->
-		</article>
+		</div>
 	</div>
-	<script>
-	var isProfileShown = -1;
-
-	$("div.circly").click(
-		function() {
-			var index = $( "div.circly" ).index( this );
-
-			if (index != isProfileShown) {
-				isProfileShown = index;
-				var myUrl = "profiles/profile"+ index +".html";
-
-				$.ajax({
-					type: 'GET',
-					url: myUrl,
-					success: function (data) {
-						$( "div.circly" ).children("img").css("border", "4px solid #01414e");
-						$( "div.circly").eq(index).children("img").css("border", "4px solid #e44d26");
-
-						$('#profile').stop(true, true);
-						$('#profile').slideUp(300, function() {
-							$('#profile').html(data);
-						}); 
-
-						$('#profile').slideDown(300); },
-						dataType: 'html',
-						error: function(xhr, textStatus, error){
-							console.log(xhr.statusText);
-							console.log(textStatus);
-							console.log(error);
-						}
-					});
-			} else {
-				isProfileShown = -1;
-				$.ajax({
-					type: 'GET',
-					url: "profiles/profile.html",
-					success: function (data) {
-						$( "div.circly" ).children("img").css("border", "4px solid #01414e");
-
-						$('#profile').stop(true, true);
-						$('#profile').slideUp(300, function() {
-							$('#profile').html(data);
-						}); 
-
-						$('#profile').slideDown(300); },
-						dataType: 'html',
-						error: function(xhr, textStatus, error){
-							console.log(xhr.statusText);
-							console.log(textStatus);
-							console.log(error);
-						}
-					});
-			}
-
-		});
-</script>
 
 </body>
 </html>
