@@ -32,9 +32,9 @@ function printResultsForEmail() {
 	$mensaje .= "Sexo: " . $_POST['gender'] . "\n";
 	$mensaje .= "Edad: " . $_POST['age'] . "\n";
 
-	$mensaje .= "----------------------------------------------" . "\n";
+	$mensaje .= "----------------------------------------------" . "\n\n";
 
-	$mensaje .= "Pregunta 1: " . $_POST['question1'] . "\n";
+	$mensaje .= "- Pregunta 1: " . $_POST['question1'] . "\n\n";
 
 	$likes = "";
 	for ($i = 0; $i < 22; $i++) {
@@ -44,12 +44,12 @@ function printResultsForEmail() {
 		}
 	}
 
-	$mensaje .= "Pregunta 2: " . $likes . $_POST['question2_otros'] . "\n";
+	$mensaje .= "- Pregunta 2: " . $likes . "\n  Otros: " . $_POST['question2_otros'] . "\n\n";
 
-	$mensaje .= "Pregunta 3: " . $_POST['question3'] . " // " . $_POST['question3_b'] . "\n";
+	$mensaje .= "- Pregunta 3: " . $_POST['question3'] . " // " . $_POST['question3_b'] . "\n\n";
 
-	$mensaje .= "Pregunta 4: " . $_POST['question4'] . "\n";
-	$mensaje .= "Pregunta 5: " . $_POST['question5'] . "\n";
+	$mensaje .= "- Pregunta 4: " . $_POST['question4'] . "\n\n";
+	$mensaje .= "- Pregunta 5: " . $_POST['question5'] . "\n\n";
 
 	$likes = "";
 	for ($i = 0; $i < 8; $i++) {
@@ -59,15 +59,15 @@ function printResultsForEmail() {
 		}
 	}
 
-	$mensaje .= "Pregunta 6: " . $likes . "\n";
-	$mensaje .= "Pregunta 7: " . $_POST['question7'] . "\n";
+	$mensaje .= "- Pregunta 6: " . $likes . "\n\n";
+	$mensaje .= "- Pregunta 7: " . $_POST['question7'] . "\n\n";
 
-	$mensaje .= "Pregunta 8: " . $_POST['question8'] . " //cuándo: " . $_POST['question8_b'] . " //cómo: " . $_POST['question8_c'] . " //dónde: " . $_POST['question8_d'] . "\n";
-	$mensaje .= "Pregunta 9: " . $_POST['question9'] . " // " . $_POST['question9_b'] . "\n";
-	$mensaje .= "Pregunta 10: " . $_POST['question10'] . " // cuál:" . $_POST['question10_b'] . " // cuándo:" . $_POST['question10_c'] . "\n";
+	$mensaje .= "- Pregunta 8: " . $_POST['question8'] . "\n  Cuándo: " . $_POST['question8_b'] . "\n  Cómo: " . $_POST['question8_c'] . "\n  Dónde: " . $_POST['question8_d'] . "\n\n";
+	$mensaje .= "- Pregunta 9: " . $_POST['question9'] . "\n  Cuándo: " . $_POST['question9_b'] . "\n  Precio: " . $_POST['question9_c'] . "\n\n";
+	$mensaje .= "- Pregunta 10: " . $_POST['question10'] . "\n  Cuál: " . $_POST['question10_b'] . "\n  Cuándo: " . $_POST['question10_c'] . "\n  Precio: " . $_POST['question10_d'] . "\n\n";
 
-	$mensaje .= "Pregunta 11: " . $_POST['question11'] . "\n";
-	$mensaje .= "Pregunta 12: " . $_POST['question12'] . "\n";
+	$mensaje .= "- Pregunta 11: " . $_POST['question11'] . "\n\n";
+	$mensaje .= "- Pregunta 12: " . $_POST['question12'] . "\n  Cuál: " . $_POST['question12_b'] . "\n  Tipo: " . $_POST['question12_c'] . "\n\n";
 
 	$mensaje .= "Fecha: " . date("j-n-Y H:i:s") . "\n";
 
@@ -83,7 +83,7 @@ function set_session($attr, $val){
 function sendEmail($mensaje) {
 	$para = 'muthingucm@hotmail.com';
 	$copia    = 'pilasvacias@gmail.com';	
-	$titulo  = 'Prueba encuesta';
+	$titulo  = 'Encuesta: música-sistema social';
 	mail($para, $titulo, $mensaje);
 	mail($copia, $titulo, $mensaje);
 }
@@ -173,7 +173,7 @@ function printError() {
 
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">1.</div> ¿Qué estás escuchando/ qué es lo último que escuchaste?</div>
-										<input type="text" name="question1" value=""><br/>
+										<input type="text" name="question1" value="" required><br/>
 									</div>
 
 									<div class="question-container">
@@ -228,40 +228,40 @@ function printError() {
 												<label for="q2-12"><span></span>Metal</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-13" name="question2_12" value="Pop"> 
-												<label for="q2-13"><span></span>Pop</label>
+												<input type="checkbox" id ="q2-13" name="question2_12" value="Musicales"> 
+												<label for="q2-13"><span></span>Musicales</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-14" name="question2_13" value="Punk" > 
-												<label for="q2-14"><span></span>Punk</label>
+												<input type="checkbox" id ="q2-14" name="question2_13" value="Pop" > 
+												<label for="q2-14"><span></span>Pop</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-15" name="question2_14" value="R&B"> 
-												<label for="q2-15"><span></span>R&B</label>
+												<input type="checkbox" id ="q2-15" name="question2_14" value="Punk"> 
+												<label for="q2-15"><span></span>Punk</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-16" name="question2_15" value="Reggae" > 
-												<label for="q2-16"><span></span>Reggae</label>
+												<input type="checkbox" id ="q2-16" name="question2_15" value="R&B" > 
+												<label for="q2-16"><span></span>R&B</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-17" name="question2_16" value="Reggaetón"> 
-												<label for="q2-17"><span></span>Latina</label>
+												<input type="checkbox" id ="q2-17" name="question2_16" value="Reggae"> 
+												<label for="q2-17"><span></span>Reggae</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-18" name="question2_17" value="Rock" > 
-												<label for="q2-18"><span></span>Rock</label>
+												<input type="checkbox" id ="q2-18" name="question2_17" value="Reggaetón" > 
+												<label for="q2-18"><span></span>Reggaetón</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-19" name="question2_18" value="Rumba"> 
-												<label for="q2-19"><span></span>Rumba</label>
+												<input type="checkbox" id ="q2-19" name="question2_18" value="Rock"> 
+												<label for="q2-19"><span></span>Rock</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-20" name="question2_19" value="Soul" > 
-												<label for="q2-20"><span></span>Soul</label>
+												<input type="checkbox" id ="q2-20" name="question2_19" value="Rumba" > 
+												<label for="q2-20"><span></span>Rumba</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q2-21" name="question2_20" value="Teatro musical"> 
-												<label for="q2-21"><span></span>Teatro musical</label>
+												<input type="checkbox" id ="q2-21" name="question2_20" value="Soul"> 
+												<label for="q2-21"><span></span>Soul</label>
 											</div>
 											<div>
 												<input type="checkbox" id ="q2-22" name="question2_21" value="Techno" > 
@@ -276,42 +276,42 @@ function printError() {
 										<div class = "question"><div class ="question-number">3.</div> ¿Identificas tu forma de vestir con la música que escuchas?</div>
 										<div class = "check-holder">
 											<div>
-												<input type="radio" id="q3-y" name="question3" value="Sí"> 
-												<label for="q3-y"><span></span>Sí</label>	
+												<input type="radio" id="q3-y" name="question3" value="Bastante"> 
+												<label for="q3-y"><span></span>Bastante</label>	
 											</div>
 											<div>
-												<input type="radio" id="q3-n" name="question3" value="No" > 
-												<label for="q3-n"><span></span>No</label>	
+												<input type="radio" id="q3-m" name="question3" value="Poco"> 
+												<label for="q3-m"><span></span>Poco</label>	
 											</div>
 											<div>
-												<input type="radio" id="q3-m" name="question3" value="A veces"> 
-												<label for="q3-m"><span></span>A veces</label>	
+												<input type="radio" id="q3-n" name="question3" value="Nada"> 
+												<label for="q3-n"><span></span>Nada</label>	
 											</div>
 										</div>
 										<div class = "question">¿Por qué?</div><input type="text" name="question3_b" value=""><br/>
 									</div>
 									
 									<div class="question-container">
-										<div class = "question"><div class ="question-number">4.</div> ¿Escuchas la misma música cuando sales por la noche?</div>
+										<div class = "question"><div class ="question-number">4.</div> ¿Frecuentas lugares donde suena ese tipo de musica?</div>
 										<div class = "check-holder">
 											<div>
-												<input type="radio" id="q4-y" name="question4" value="Sí" > 
-												<label for="q4-y"><span></span>Sí</label>	
+												<input type="radio" id="q4-y" name="question4" value="Siempre"> 
+												<label for="q4-y"><span></span>Siempre</label>	
 											</div>
 											<div>			
-												<input type="radio" id="q4-n" name="question4" value="No" > 
-												<label for="q4-n"><span></span>No</label>	
-											</div>
-											<div>
 												<input type="radio" id="q4-m" name="question4" value="A veces"> 
 												<label for="q4-m"><span></span>A veces</label>	
+											</div>
+											<div>
+												<input type="radio" id="q4-n" name="question4" value="No">  
+												<label for="q4-n"><span></span>No</label>	
 											</div>
 										</div>
 									</div>
 									
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">5.</div> ¿Cuántas horas de música escuchas al día?</div>
-										<input type="number" name="question5" min="0" max="24"/> <br/>
+										<input type="number" name="question5" min="0" max="24" required/> <br/>
 									</div>
 									
 									<div class="question-container">
@@ -335,8 +335,8 @@ function printError() {
 												<label for="q6-4"><span></span>Mp3, Mp4, Mp5</label>
 											</div>
 											<div>
-												<input type="checkbox" id ="q6-5" name="question6_4" value="Ornedanor">
-												<label for="q6-5"><span></span>Ornedanor</label>
+												<input type="checkbox" id ="q6-5" name="question6_4" value="Ordenador">
+												<label for="q6-5"><span></span>Ordenador</label>
 											</div>
 											<div>
 												<input type="checkbox" id ="q6-6" name="question6_5" value="Radio" >
@@ -355,12 +355,12 @@ function printError() {
 
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">7.</div> ¿Cómo descubres nueva música?</div>
-										<input type="text" name="question7" value=""><br/>
+										<input type="text" name="question7" value="" required><br/>
 									</div>
 
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">8.</div> Último disco que has adquirido: </div>
-										<input type="text" name="question8" value=""><br/>
+										<input type="text" name="question8" value="" required><br/>
 										<div class = "question">¿Cuándo?</div>
 										<input type="text" name="question8_b" value=""><br/>
 										<div class = "check-holder">
@@ -387,9 +387,11 @@ function printError() {
 
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">9.</div> Último concierto al que has asistido: </div>
-										<input type="text" name="question9" value=""><br/>
+										<input type="text" name="question9" value="" required><br/>
 										<div class = "question">¿Cuándo?</div>
 										<input type="text" name="question9_b" value=""><br/>
+										<div class = "question">Precio: </div>
+										<input type="number" name="question9_c" min="0" step="0.01"/> €<br/>
 									</div>
 
 									<div class="question-container">
@@ -400,7 +402,7 @@ function printError() {
 												<label for="q10-y"><span></span>Sí</label>	
 											</div>
 											<div>
-												<input type="radio" id="q10-n" name="question10" value="No" > 
+												<input type="radio" id="q10-n" name="question10" value="No"> 
 												<label for="q10-n"><span></span>No</label>	
 											</div>
 										</div>
@@ -408,22 +410,24 @@ function printError() {
 										<input type="text" name="question10_b" value=""><br/>
 										<div class = "question">¿Cuándo?</div>
 										<input type="text" name="question10_c" value=""><br/>
+										<div class = "question">Precio: </div>
+										<input type="number" name="question10_d" min="0" step="0.01"/> €<br/>
 									</div>
 
 									<div class="question-container">
 										<div class = "question"><div class ="question-number">11.</div> ¿Tus amistades tienen tus mismos gustos musicales? </div>
 										<div class = "check-holder">
 											<div>
-												<input type="radio" id="q11-y" name="question11" value="Sí"> 
-												<label for="q11-y"><span></span>Sí</label>	
+												<input type="radio" id="q11-y" name="question11" value="Todos"> 
+												<label for="q11-y"><span></span>Todos</label>	
 											</div>
 											<div>
-												<input type="radio" id="q11-m" name="question11" value="Mixto"> 
-												<label for="q11-m"><span></span>Mixto</label>	
+												<input type="radio" id="q11-m" name="question11" value="Casi todos"> 
+												<label for="q11-m"><span></span>Casi todos</label>	
 											</div>
 											<div>
-												<input type="radio" id="q11-n" name="question11" value="No" > 
-												<label for="q11-n"><span></span>No</label>	
+												<input type="radio" id="q11-n" name="question11" value="Ninguno"> 
+												<label for="q11-n"><span></span>Ninguno</label>	
 											</div>
 										</div>
 									</div>
@@ -436,10 +440,14 @@ function printError() {
 												<label for="q12-y"><span></span>Sí</label>	
 											</div>
 											<div>
-												<input type="radio" id="q12-n" name="question12" value="No" > 
+												<input type="radio" id="q12-n" name="question12" value="No"> 
 												<label for="q12-n"><span></span>No</label>	
 											</div>
 										</div>
+										<div class = "question">¿Cuál/Cuales?</div>
+										<input type="text" name="question12_b" value=""><br/>
+										<div class = "question">¿De que tipo?</div>
+										<input type="text" name="question12_c" value=""><br/>
 									</div>
 
 									<input type="hidden" name="miencuesta" value="true">
@@ -509,9 +517,25 @@ function printError() {
 										if (this.value == "Sí") {
 											document.forms["cuestionario"]["question10_b"].disabled = false;
 											document.forms["cuestionario"]["question10_c"].disabled = false;
+											document.forms["cuestionario"]["question10_d"].disabled = false;
 										} else if (this.value == "No") {
 											document.forms["cuestionario"]["question10_b"].disabled = true;
 											document.forms["cuestionario"]["question10_c"].disabled = true;
+											document.forms["cuestionario"]["question10_d"].disabled = true;
+										}
+									};
+								}
+
+								sz = document.forms['cuestionario'].elements['question12'];
+
+								for (var i=0, len=sz.length; i<len; i++) {
+									sz[i].onclick = function() {
+										if (this.value == "Sí") {
+											document.forms["cuestionario"]["question12_b"].disabled = false;
+											document.forms["cuestionario"]["question12_c"].disabled = false;
+										} else if (this.value == "No") {
+											document.forms["cuestionario"]["question12_b"].disabled = true;
+											document.forms["cuestionario"]["question12_c"].disabled = true;
 										}
 									};
 								}
