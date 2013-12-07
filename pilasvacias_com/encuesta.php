@@ -10,6 +10,8 @@ if(!isset($_SESSION['last_email_sent']) || $_SESSION['last_email_sent']==null ||
 
 		$emailText = printResultsForEmail();
 
+		addResults();
+
 		if($flagError){
 			printError();
 		} else {
@@ -74,6 +76,157 @@ function printResultsForEmail() {
 	return $mensaje;
 }
 
+function addResults() {
+	
+
+	switch ($_POST[gender]) {
+		case 'Hombre':
+		$gender = 0;
+		break;
+		case 'Mujer':
+		$gender = 1;
+		break;
+		default:
+		$gender = -1;
+		break;
+	}
+
+	switch ($_POST[age]) {
+		case '12 -17':
+		$age = 0;
+		break;
+		case '18 - 25':
+		$age = 1;
+		break;
+		case '26 - 35':
+		$age = 2;
+		break;
+		case '36 - 45':
+		$age = 3;
+		break;
+		case '46 - 55':
+		$age = 4;
+		break;
+		case '+56':
+		$age = 5;
+		break;		
+		default:
+		$age = -1;
+		break;
+	}
+
+	$question1 = $_POST[question1];
+
+	$question2_b = $_POST[question2_b];
+
+	switch ($_POST[question3]) {
+		case 'Bastante':
+		$question3 = 0;
+		break;
+		case 'Poco':
+		$question3 = 1;
+		break;
+		case 'Nada':
+		$question3 = 2;
+		break;	
+		default:
+		$question3 = -1;
+		break;
+	}
+
+	$question3_b = $_POST[question3_b];
+
+	switch ($_POST[question4]) {
+		case 'Siempre':
+		$question4 = 0;
+		break;
+		case 'A veces':
+		$question4 = 1;
+		break;
+		case 'No':
+		$question4 = 2;
+		break;	
+		default:
+		$question4 = -1;
+		break;
+	}
+
+	$question5 = $_POST[question5];
+
+	$question7 = $_POST[question7];
+
+	$question8 = $_POST[question8];
+	$question8_b = $_POST[question8_b];
+	$question8_c = ($_POST[question8_c]=="Descargado" ? 1 : 0);
+	$question8_d = $_POST[question8_d]=="Internet" ? 1 : 0;
+
+	$question9 = $_POST[question9];
+	$question9_b = $_POST[question9_b];
+	$question9_c = $_POST[question9_c];
+
+	$question10 = $_POST[question10]=='No' ? 1 : 0;
+	$question10_b = $_POST[question10_b];
+	$question10_c = $_POST[question10_c];
+	$question10_d = $_POST[question10_d];
+
+	switch ($_POST[question11]) {
+		case 'Todos':
+		$question11 = 0;
+		break;
+		case 'Casi todos':
+		$question11 = 1;
+		break;
+		case 'Ninguno':
+		$question11 = 2;
+		break;	
+		default:
+		$question11 = -1;
+		break;
+	}
+
+	$question12 = $_POST[question12]=='No' ? 1 : 0;
+
+	$link = mysqli_connect("mysql51-105.perso","pilasvacias","G7cpcUUkCkdk","pilasvacias") or die("Error " . mysqli_error($link));
+
+	
+	mysqli_query($link,"INSERT INTO encuesta_musica (gender, age, question1, question2_b, question3, question3_b, question4, question5, question7, question8, question8_b, question8_c, question8_d, question9, question9_b, question9_c, question10, question10_b, question10_c, question10_d, question11, question12)
+		VALUES ('$gender', '$age', '$question1', '$question2_b', '$question3', '$question3_b', '$question4', '$question5', '$question7', '$question8', '$question8_b', '$question8_c', '$question8_d', '$question9', '$question9_b', '$question9_c', '$question10', '$question10_b', '$question10_c', '$question10_d', '$question11', '$question12')");
+
+	$id = mysqli_insert_id($link);
+
+
+	$question_table = array();
+
+	for ($i = 0; $i < 22; $i++) {
+		$q = "question2_" . $i;
+		if (isset($_POST[$q])) {
+			$question_table[] = 1;
+		} else {
+			$question_table[] = 0;
+		}
+	}
+
+
+	mysqli_query($link,"INSERT INTO question2 (id, blues, clasica, dance, dubstep, electronica, flamenco, funk, hip_hop, indie, jazz, latina, metal, musicales, pop, punk, rnb, reggae, reggaeton, rock, rumba, soul, techno) 
+		VALUES ('$id', '$question_table[0]', '$question_table[1]', '$question_table[2]', '$question_table[3]', '$question_table[4]', '$question_table[5]', '$question_table[6]', '$question_table[7]', '$question_table[8]', '$question_table[9]', '$question_table[10]', '$question_table[11]', '$question_table[12]', '$question_table[13]', '$question_table[14]', '$question_table[15]', '$question_table[16]', '$question_table[17]', '$question_table[18]', '$question_table[19]', '$question_table[20]', '$question_table[21]')");
+
+
+	$question_table = array();
+	for ($i = 0; $i < 8; $i++) {
+		$q = "question6_" . $i;
+		if (isset($_POST[$q])) {
+			$question_table[] = 1;
+		} else {
+			$question_table[] = 0;
+		}
+	}
+
+	mysqli_query($link,"INSERT INTO question6 (id, discman, ipod, movil, mp3, ordenador, radio, walkman, otros)
+		VALUES ('$id', '$question_table[0]', '$question_table[1]', '$question_table[2]', '$question_table[3]', '$question_table[4]', '$question_table[5]', '$question_table[6]', '$question_table[7]')");
+
+	mysqli_close($link);
+}
+
 function set_session($attr, $val){
 
 	$_SESSION[$attr] = $val;
@@ -83,7 +236,7 @@ function set_session($attr, $val){
 function sendEmail($mensaje) {
 	$para = 'muthingucm@hotmail.com';
 	$copia    = 'pilasvacias@gmail.com';	
-	$titulo  = 'Encuesta: música-sistema social';
+	$titulo  = 'Encuesta: música-sistema social (n)';
 	mail($para, $titulo, $mensaje);
 	mail($copia, $titulo, $mensaje);
 }
@@ -288,7 +441,7 @@ function printError() {
 												<label for="q3-n"><span></span>Nada</label>	
 											</div>
 										</div>
-										<div class = "question">¿Por qué?</div><input type="text" name="question3_b" value=""><br/>
+										<div class = "question">¿Por qué?</div><input type="text" name="question3_b" value="" required><br/>
 									</div>
 									
 									<div class="question-container">
@@ -589,6 +742,74 @@ function printError() {
 
 									if(!checked) {
 										alert('Por favor indica tu edad');
+										totalCheck = false;
+										return false;
+									}
+
+									checked = false;
+
+									radioButton = document.forms['cuestionario'].elements['question3'];
+
+									for (var i=0, len=radioButton.length; i<len; i++) {
+										if (radioButton[i].checked) {
+											checked = true;
+											break;
+										}
+									}
+
+									if(!checked) {
+										alert('Contesta a la pregunta 3');
+										totalCheck = false;
+										return false;
+									}
+
+									checked = false;
+
+									radioButton = document.forms['cuestionario'].elements['question4'];
+
+									for (var i=0, len=radioButton.length; i<len; i++) {
+										if (radioButton[i].checked) {
+											checked = true;
+											break;
+										}
+									}
+
+									if(!checked) {
+										alert('Contesta a la pregunta 4');
+										totalCheck = false;
+										return false;
+									}
+
+									checked = false;
+
+									radioButton = document.forms['cuestionario'].elements['question10'];
+
+									for (var i=0, len=radioButton.length; i<len; i++) {
+										if (radioButton[i].checked) {
+											checked = true;
+											break;
+										}
+									}
+
+									if(!checked) {
+										alert('Contesta a la pregunta 10');
+										totalCheck = false;
+										return false;
+									}
+
+									checked = false;
+
+									radioButton = document.forms['cuestionario'].elements['question11'];
+
+									for (var i=0, len=radioButton.length; i<len; i++) {
+										if (radioButton[i].checked) {
+											checked = true;
+											break;
+										}
+									}
+
+									if(!checked) {
+										alert('Contesta a la pregunta 11');
 										totalCheck = false;
 										return false;
 									}
