@@ -188,6 +188,7 @@ function addResults() {
 
 	$link = mysqli_connect("mysql51-105.perso","pilasvacias","G7cpcUUkCkdk","pilasvacias") or die("Error " . mysqli_error($link));
 
+	mysqli_set_charset($link, "utf8");
 	
 	mysqli_query($link,"INSERT INTO encuesta_musica (gender, age, question1, question2_b, question3, question3_b, question4, question5, question7, question8, question8_b, question8_c, question8_d, question9, question9_b, question9_c, question10, question10_b, question10_c, question10_d, question11, question12)
 		VALUES ('$gender', '$age', '$question1', '$question2_b', '$question3', '$question3_b', '$question4', '$question5', '$question7', '$question8', '$question8_b', '$question8_c', '$question8_d', '$question9', '$question9_b', '$question9_c', '$question10', '$question10_b', '$question10_c', '$question10_d', '$question11', '$question12')");
