@@ -22,7 +22,7 @@ for ($i = 0; $i <= 5; $i++) {
     COUNT(CASE WHEN latina = 1 THEN 1 ELSE NULL END) AS latina_c,
     COUNT(CASE WHEN metal = 1 THEN 1 ELSE NULL END) AS metal_c,
     COUNT(CASE WHEN musicales = 1 THEN 1 ELSE NULL END) AS musicales_c,
-    COUNT(CASE WHEN pop = 1 THEN 1 ELSE NULL END) AS hip_hop_c,
+    COUNT(CASE WHEN pop = 1 THEN 1 ELSE NULL END) AS pop_c,
     COUNT(CASE WHEN punk = 1 THEN 1 ELSE NULL END) AS punk_c,
     COUNT(CASE WHEN rnb = 1 THEN 1 ELSE NULL END) AS rnb_c,
     COUNT(CASE WHEN reggae = 1 THEN 1 ELSE NULL END) AS reggae_c,

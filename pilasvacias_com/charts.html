@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Grafos</title>
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	
+	<link type="text/css" rel="stylesheet" href="css/basic.css">
+	<link type="text/css" rel="stylesheet" href="css/circles.css"/>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- Social CSS -->
+	<link href="css/social-buttons.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic">
+
+	<link type="text/css" rel="stylesheet" href="css/form.css">
+
+	<style>
+		body {
+			background-color: white;
+			font-family: 'Roboto';
+		}
+		h1 {
+			font-family: 'Roboto Condensed', serif;
+			color:#fff;
+		}
+		h2 {
+			font-family: 'Roboto Condensed', serif;
+			color:#fff;
+		}
+		h3 {
+			font-family: 'Roboto Condensed', serif;
+			color:#fff;		
+		}
+
+	</style>
+
+	<!-- SCRIPTS -->
+	<script src="js/jquery-2.0.3.js" ></script>
+	<script src="Chart.js"></script>
+</head>
+<body>
+
+<canvas id="myOtherChart" width="1024" height="1024"></canvas>
+
+<script>
+
+var someArray = [1,1,0,0,2,0,0,2,3,0,1,0,1,7,1,0,1,1,3,0,0,1];
+var twelveSeventeen  = makePercentageArray(someArray);
+someArray = [2,5,3,0,1,3,0,0,1,1,3,0,2,7,0,1,0,0,3,3,0,1];
+var thirtysixFortyfive  = makePercentageArray(someArray);
+someArray = [2,4,4,0,1,5,1,0,1,2,3,0,0,7,0,1,1,0,4,1,2,2];
+var fortysixFiftyfive  = makePercentageArray(someArray);
+someArray = [1,2,0,0,0,2,0,0,0,1,1,0,0,2,0,0,0,0,1,0,0,0];
+var fiftySix  = makePercentageArray(someArray);
+
+
+
+function makePercentageArray(myArray) {
+	var length = myArray.length;
+	var total = 0;
+	var percentageArray = [];
+
+	for (var i = 0; i < length; i++){
+		total+= myArray[i];
+	}
+
+	for (var i = 0; i < length; i++) {
+		var aux = (myArray[i]*100/total);
+		percentageArray.push(aux);
+	};
+return percentageArray;
+}
+
+
+//Get context with jQuery - using jQuery's .get() method.
+	var ctx = $("#myOtherChart").get(0).getContext("2d");
+//This will get the first returned node in the jQuery collection.
+var myRadarChart = new Chart(ctx);
+
+var data = {
+	labels : ["Blues","Clásica","Dance","Dubstep","Electrónica","Flamenco","Funk", "Hip Hop", "Indie", "Jazz", "Latina", "Metal", "Musicales", "Pop", "Punk", "R&B", "Reggae", "Reggaetón", "Rock", "Rumba", "Soul","Techno"],
+	datasets : [
+			{
+			fillColor : "rgba(220,34,34,0.2)",
+			strokeColor : "rgba(220,34,34,1)",
+			pointColor : "rgba(220,34,34,1)",
+			pointStrokeColor : "#fff",
+			data : twelveSeventeen
+		},
+		{
+						fillColor : "rgba(230,230,15,0.2)",
+			strokeColor : "rgba(230,230,15,1)",
+			pointColor : "rgba(230,230,15,1)",
+
+			pointStrokeColor : "#fff",
+			data : [2.04,2.85,4.89,4.08,8.57,3.26,1.22,4.48,7.34,2.44,3.67,2.85,1.63,11.83,5.71,2.85,4.48,3.67,11.42,3.26,2.44,4.89]
+		},
+
+		{
+			fillColor : "rgba(205,187,151,0.2)",
+			strokeColor : "rgba(205,187,151,1)",
+			pointColor : "rgba(205,187,151,1)",
+			pointStrokeColor : "#fff",
+			data : [0,9.09,4.56,0,9.09,4.56,4.56,0,9.09,0,0,5.56,0,22.72,4.56,0,0,0,27.27,0,0,0]
+		},
+		{
+			fillColor : "rgba(105,187,151,0.2)",
+			strokeColor : "rgba(105,187,151,1)",
+			pointColor : "rgba(105,187,151,1)",
+			pointStrokeColor : "#fff",
+			data : thirtysixFortyfive
+		},
+		{
+			fillColor : "rgba(140,140,140,0.2)",
+			strokeColor : "rgba(140,140,140,1)",
+			pointColor : "rgba(140,140,140,1)",
+			pointStrokeColor : "#fff",
+			data : fortysixFiftyfive
+		},
+		{
+			fillColor : "rgba(151,187,205,0.2)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : fiftySix
+		}
+	]
+}
+
+var options = {
+				
+	//Boolean - If we show the scale above the chart data			
+	scaleOverlay : false,
+	
+	//Boolean - If we want to override with a hard coded scale
+	scaleOverride : false,
+	
+	//** Required if scaleOverride is true **
+	//Number - The number of steps in a hard coded scale
+	scaleSteps : 6,
+	//Number - The value jump in the hard coded scale
+	scaleStepWidth : 5,
+	//Number - The centre starting value
+	scaleStartValue : null,
+	
+	//Boolean - Whether to show lines for each scale point
+	scaleShowLine : true,
+
+	//String - Colour of the scale line	
+	scaleLineColor : "rgba(0,0,0,.1)",
+	
+	//Number - Pixel width of the scale line	
+	scaleLineWidth : 3,
+
+	//Boolean - Whether to show labels on the scale	
+	scaleShowLabels : true,
+	
+	//Interpolated JS string - can access value
+	scaleLabel : "<%=value%>",
+	
+	//String - Scale label font declaration for the scale label
+	scaleFontFamily : "'Arial'",
+	
+	//Number - Scale label font size in pixels	
+	scaleFontSize : 14,
+	
+	//String - Scale label font weight style	
+	scaleFontStyle : "normal",
+	
+	//String - Scale label font colour	
+	scaleFontColor : "#666",
+	
+	//Boolean - Show a backdrop to the scale label
+	scaleShowLabelBackdrop : true,
+	
+	//String - The colour of the label backdrop	
+	scaleBackdropColor : "rgba(255,255,255,0.75)",
+	
+	//Number - The backdrop padding above & below the label in pixels
+	scaleBackdropPaddingY : 2,
+	
+	//Number - The backdrop padding to the side of the label in pixels	
+	scaleBackdropPaddingX : 2,
+	
+	//Boolean - Whether we show the angle lines out of the radar
+	angleShowLineOut : true,
+	
+	//String - Colour of the angle line
+	angleLineColor : "rgba(0,0,0,.1)",
+	
+	//Number - Pixel width of the angle line
+	angleLineWidth : 1,			
+	
+	//String - Point label font declaration
+	pointLabelFontFamily : "'Arial'",
+	
+	//String - Point label font weight
+	pointLabelFontStyle : "normal",
+	
+	//Number - Point label font size in pixels	
+	pointLabelFontSize : 18,
+	
+	//String - Point label font colour	
+	pointLabelFontColor : "#666",
+	
+	//Boolean - Whether to show a dot for each point
+	pointDot : true,
+	
+	//Number - Radius of each point dot in pixels
+	pointDotRadius : 4,
+	
+	//Number - Pixel width of point dot stroke
+	pointDotStrokeWidth : 1,
+	
+	//Boolean - Whether to show a stroke for datasets
+	datasetStroke : true,
+	
+	//Number - Pixel width of dataset stroke
+	datasetStrokeWidth : 1,
+	
+	//Boolean - Whether to fill the dataset with a colour
+	datasetFill : true,
+	
+	//Boolean - Whether to animate the chart
+	animation : true,
+
+	//Number - Number of animation steps
+	animationSteps : 60,
+	
+	//String - Animation easing effect
+	animationEasing : "easeOutQuart",
+
+	//Function - Fires when the animation is complete
+	onAnimationComplete : null
+	
+}
+
+myRadarChart.Radar(data, options); 
+
+
+</script>
+</body>
+</html>
